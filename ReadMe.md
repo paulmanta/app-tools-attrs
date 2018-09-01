@@ -24,7 +24,7 @@ First things first. Add the library to your dependencies.
 	}
 	  
     dependencies {
-        implementation 'com.github.paulmanta:app-tools-attrs:v1.0.0'
+        implementation 'com.github.paulmanta:app-tools-attrs:v1.1.0'
     }
 
 You will need to define a design-time attribute for each of your existing attributes.
