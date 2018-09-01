@@ -2,10 +2,16 @@
 
 Don't you like it how you can use attributes like `tools:text` with a `TextView` or other standard
 Android views? _I do, they make development so much quicker!_ Don't you wish design-time attributes
-worked with your own custom views as well? _That would be fantastic! It's one of my biggest wishes!_
-**Then I have just the thing for you!**
+worked with your own custom views as well? _One can only dream..._ **Then I have just the thing for
+you!**
 
 `AppToolsAttrs` is a single file library that makes that possible!
+
+    <com.example.MyWidget
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:title="@string/widget_title"
+        app:tools_title="Lorem ipsum"/>
 
 ## What do I need to do?
 
@@ -33,19 +39,18 @@ You will need to define a design-time attribute for each of your existing attrib
         <attr name="tools_thumbnail" format="reference"/>
     </declare-styleable>
     
-Then, when initializing your view, instead of reading attributes directly from a `TypedArray` use
-`AppToolsAttrs`.
+Then, when initializing your view, use `AppToolsAttrs` instead of reading attributes directly from a `TypedArray`.
 
     TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.MyWidget, defStyleAttr, defStyleRes);
     try {
         setTitle(AppToolsAttrs.getString(a, isInEditMode(), R.styleable.MyWidget_title, R.styleable.MyWidget_tools_title));
         setDescription(AppToolsAttrs.getString(a, isInEditMode(), R.styleable.MyWidget_description, R.styleable.MyWidget_tools_description));
-        setIcon(AppToolsAttrs.getDrawable(a, isInEditMode(), R.styleable.MyWidget_icon, R.styleable.MyWidget_tools_icon));
+        setThumbnail(AppToolsAttrs.getDrawable(a, isInEditMode(), R.styleable.MyWidget_thumbnail, R.styleable.MyWidget_tools_thumbnail));
     }
     finally {
         a.recycle();
     }
-    
+
 ## I have some questions...
 
 - **Don't you think it's a bit cumbersome to duplicate all the existing attributes?**
