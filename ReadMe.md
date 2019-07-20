@@ -5,7 +5,7 @@ Android views? _I do, they make development so much quicker!_ Don't you wish des
 worked with your own custom views as well? _One can only dream..._ **Then I have just the thing for
 you!**
 
-`AppToolsAttrs` is a single file library that makes that possible!
+`AppToolsAttrs` is a single-file library that makes that possible!
 
     <com.example.MyWidget
         android:layout_width="match_parent"
